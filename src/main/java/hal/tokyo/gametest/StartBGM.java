@@ -19,7 +19,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
  *
  * @author gn5r
  */
-public class BGMPlayer extends Thread {
+public class StartBGM extends Thread {
 
     private AudioInputStream ais;
     private DataLine.Info dataLine;
@@ -31,8 +31,8 @@ public class BGMPlayer extends Thread {
 
     private int size;
 
-    public BGMPlayer(String fileName) {
-        this.file = new File(fileName + ".wav");
+    public StartBGM() {
+        this.file = new File("level_0.wav");
     }
 
     @Override
@@ -54,17 +54,16 @@ public class BGMPlayer extends Thread {
 
                 if (this.size == -1) {
                     ais.close();
-                    break;
+                    ais = AudioSystem.getAudioInputStream(this.file);
+                    continue;
                 }
-
+                
                 this.boothBGM.write(this.data, 0, size);
-
+                
                 if (!this.flag) {
                     break;
                 }
             }
-
-            this.size = -1;
 
         } catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
             e.printStackTrace();
@@ -84,9 +83,5 @@ public class BGMPlayer extends Thread {
         this.boothBGM.stop();
         this.boothBGM.close();
 
-    }
-
-    public int getSize() {
-        return this.size;
     }
 }

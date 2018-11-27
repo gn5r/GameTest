@@ -13,7 +13,8 @@ import java.util.Scanner;
  */
 public class Sample {
 
-    private static BGMPlayer bgmPlayer;
+    private static StartBGM startBGM;
+    private static BGMPlayer performBGM;
 
     public static void main(String[] args) throws Exception {
         System.out.println("演出サンプルを開始");
@@ -22,12 +23,12 @@ public class Sample {
 
         while (true) {
             Thread.sleep(2000);
-            startBGM("level_0");
+            startBGM();
 
             System.out.println("ゲーム結果受信待機中...");
             int level = scanner.nextInt();
             System.out.println("キレイドは" + level + "です");
-            bgmPlayer.stopBGM();
+            startBGM.stopBGM();
             Thread.sleep(1000);
             mainPerform(level);
             Thread.sleep(1000);
@@ -38,18 +39,23 @@ public class Sample {
 
     private static void mainPerform(int level) throws Exception {
 
-        startBGM("level_" + level);
+        performBGM("level_" + level);
 
         while (true) {
-            if (bgmPlayer.getSize() == -1) {
+            if (performBGM.getSize() == -1) {
                 break;
             }
         }
-        bgmPlayer.stopBGM();
+        performBGM.stopBGM();
     }
 
-    private static void startBGM(String fileName) {
-        bgmPlayer = new BGMPlayer("BGM/" + fileName);
-        bgmPlayer.musicPlay();
+    private static void startBGM() {
+        startBGM = new StartBGM();
+        startBGM.musicPlay();
+    }
+
+    private static void performBGM(String fileName) {
+        performBGM = new BGMPlayer("BGM/" + fileName);
+        performBGM.musicPlay();
     }
 }

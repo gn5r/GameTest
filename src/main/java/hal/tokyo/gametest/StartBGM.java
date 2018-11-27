@@ -31,8 +31,8 @@ public class StartBGM extends Thread {
 
     private int size;
 
-    public StartBGM() {
-        this.file = new File("BGM/level_0.wav");
+    public StartBGM(String fileName) {
+        this.file = new File(fileName + ".wav");
     }
 
     @Override
@@ -83,5 +83,9 @@ public class StartBGM extends Thread {
         this.boothBGM.stop();
         this.boothBGM.close();
 
+    }
+    
+    public int getSize() {
+        return this.size;
     }
 }

@@ -23,7 +23,7 @@ public class Sample {
 
         while (true) {
             Thread.sleep(2000);
-            startBGM();
+            startBGM("level_0");
 
             System.out.println("ゲーム結果受信待機中...");
             int level = scanner.nextInt();
@@ -39,18 +39,18 @@ public class Sample {
 
     private static void mainPerform(int level) throws Exception {
 
-        performBGM("level_" + level);
+        startBGM("level_" + level);
 
         while (true) {
             if (performBGM.getSize() == -1) {
+                performBGM.stopBGM();
                 break;
             }
-        }
-        performBGM.stopBGM();
+        }        
     }
 
-    private static void startBGM() {
-        startBGM = new StartBGM();
+    private static void startBGM(String fileName) {
+        startBGM = new StartBGM("BGM/" + fileName);
         startBGM.musicPlay();
     }
 

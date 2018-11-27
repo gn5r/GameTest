@@ -23,12 +23,12 @@ public class Sample {
 
         while (true) {
             Thread.sleep(2000);
-            startBGM("level_0");
+            performBGM("level_0");
 
             System.out.println("ゲーム結果受信待機中...");
             int level = scanner.nextInt();
             System.out.println("キレイドは" + level + "です");
-            startBGM.stopBGM();
+            performBGM.stopBGM();
             Thread.sleep(1000);
             mainPerform(level);
             Thread.sleep(1000);

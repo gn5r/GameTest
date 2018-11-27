@@ -41,7 +41,6 @@ public class Sample {
         startBGM("level_" + level);
 
         while (true) {
-            Thread.sleep(500);
             if (bgmPlayer.getSize() == -1) {
                 break;
             }

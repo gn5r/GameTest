@@ -57,9 +57,7 @@ public class StartBGM extends Thread {
                     ais = AudioSystem.getAudioInputStream(this.file);
                     continue;
                 }
-                
                 this.boothBGM.write(this.data, 0, size);
-                
                 if (!this.flag) {
                     break;
                 }
@@ -84,7 +82,7 @@ public class StartBGM extends Thread {
         this.boothBGM.close();
 
     }
-    
+
     public int getSize() {
         return this.size;
     }

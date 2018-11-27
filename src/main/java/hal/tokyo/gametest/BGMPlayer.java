@@ -57,6 +57,7 @@ public class BGMPlayer extends Thread {
                 }
 
                 if (this.size == -1) {
+                    this.size = -1;
                     ais.close();
                     ais = AudioSystem.getAudioInputStream(this.file);
                     continue;

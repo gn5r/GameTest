@@ -57,9 +57,11 @@ public class BGMPlayer extends Thread {
                 }
 
                 if (this.size == -1) {
+                    System.out.println("size=-1になりました");
                     this.size = -1;
                     ais.close();
                     ais = AudioSystem.getAudioInputStream(this.file);
+                    System.out.println("BGMコンティニュー");
                     continue;
                 }
                 this.boothBGM.write(this.data, 0, size);

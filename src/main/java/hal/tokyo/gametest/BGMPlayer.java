@@ -54,7 +54,9 @@ public class BGMPlayer extends Thread {
 
                 if (this.size == -1) {
                     ais.close();
-                    break;
+                    ais.close();
+                    ais = AudioSystem.getAudioInputStream(this.file);
+                    continue;
                 }
                 this.boothBGM.write(this.data, 0, size);
                 if (!this.flag) {

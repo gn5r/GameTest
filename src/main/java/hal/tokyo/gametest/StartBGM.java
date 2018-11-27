@@ -32,7 +32,7 @@ public class StartBGM extends Thread {
     private int size;
 
     public StartBGM() {
-        this.file = new File("level_0.wav");
+        this.file = new File("BGM/level_0.wav");
     }
 
     @Override

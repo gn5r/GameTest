@@ -39,7 +39,7 @@ public class Sample {
 
     private static void mainPerform(int level) throws Exception {
 
-        startBGM("level_" + level);
+        performBGM("level_" + level);
 
         while (true) {
             if (performBGM.getSize() == -1) {

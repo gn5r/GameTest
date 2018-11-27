@@ -56,14 +56,12 @@ public class BGMPlayer extends Thread {
                     ais.close();
                     break;
                 }
-
                 this.boothBGM.write(this.data, 0, size);
-
                 if (!this.flag) {
                     break;
                 }
             }
-
+            
             this.size = -1;
 
         } catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {

@@ -41,12 +41,12 @@ public class Sample {
         startBGM("level_" + level);
 
         while (true) {
-            Thread.sleep(1000);
+            Thread.sleep(500);
             if (bgmPlayer.getSize() == -1) {
-                bgmPlayer.stopBGM();
                 break;
             }
         }
+        bgmPlayer.stopBGM();
     }
 
     private static void startBGM(String fileName) {
